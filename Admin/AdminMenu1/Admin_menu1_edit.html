@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จัดการข้อมูลนักกายภาพบำบัด | Admin</title>
+
+    <link rel="stylesheet" href="../../CSS/Admin/admin_menu1_edit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container-head">
+            <h2>JOINT MOTION SYSTEM</h2>
+        </div>
+        
+        <div class="user-container">
+            <div class="profile">
+                <p>แอดมิน: <span id="user-name">กำลังโหลด...</span></p>
+            </div>
+            
+            <div class="logout">
+                <button onclick="Logout()">ออกจากระบบ</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-body">
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="../../public/admin_home.html"><i class="fa-solid fa-house"></i>หน้าเมนู Dashboard</a>
+                </li>
+                
+                <li class="active">
+                    <a href="../AdminMenu1/Admin_menu1_edit.html"><i class="fa-solid fa-user-doctor"></i>จัดการข้อมูลนักกายภาพบำบัด</a>
+                </li>
+                
+                <li>
+                    <a href="../AdminMenu1/Admin_menu1_editpatient.html"><i class="fa-solid fa-hospital-user"></i>จัดการข้อมูลผู้ป่วย</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <div class="content-header">
+                <div>
+                    <h2>ข้อมูลนักกายภาพบำบัด</h2>
+                    <p>จัดการข้อมูลนักกายภาพบำบัดทั้งหมดในระบบ</p>
+                </div>
+                
+                <button class="add-btn" onclick="addPhysio()"><i class="fa-solid fa-plus"></i>เพิ่มข้อมูล</button>
+            </div>
+            
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เพศ</th>
+                            <th>รหัสนักกายภาพบำบัด</th>
+                            <th>ชื่อผู้ใช้</th>
+                            <th>เบอร์ติดต่อ</th>
+                            <th>ดำเนินการ</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="table-physio">
+                        <tr>
+                            <td colspan="7">กำลังโหลดข้อมูล...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../../config/firebase-config.js"></script>
+    <script src="../../JS/Admin_manage_physio.js"></script>
+    <script src="../../JS/Logout.js"></script>
+    <script src="../../JS/Check-admin.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+
+</body>
+</html>

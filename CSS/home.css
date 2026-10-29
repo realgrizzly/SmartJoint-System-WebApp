@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Noto Sans Thai',sans-serif;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+.home-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ฝั่งซ้าย */
+.intro-section {
+    width: 50%;
+    background: #0866f5;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 500px;
+}
+
+.system-name {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.intro-content h1 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.intro-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #ffffff;
+}
+
+/* ฝั่งขวา */
+.action-section {
+    width: 50%;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+    text-align: center;
+}
+
+.action-content {
+    width: 100%;
+    max-width: 420px;
+}
+
+.action-content h2 {
+    font-size: 30px;
+    color: #243447;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.action-content p {
+    font-size: 14px;
+    color: #8492a6;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+/* ปุ่มเข้าสู่ระบบ */
+.login-button {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #0866f5;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.login-button span {
+    margin-left: 5px;
+}
+
+.login-button:hover {
+    background: #0052cc;
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* รองรับโทรศัพท์และแท็บเล็ต */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+    }
+
+    .intro-section,
+    .action-section {
+        width: 100%;
+        min-height: 50vh;
+        padding: 35px 20px;
+    }
+
+    .intro-content h1 {
+        font-size: 25px;
+    }
+
+    .system-name {
+        font-size: 20px;
+    }
+
+    .action-content h2 {
+        font-size: 25px;
+    }
+}

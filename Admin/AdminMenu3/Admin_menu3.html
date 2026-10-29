@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ภาพรวมของระบบ | Admin</title>
+    
+    <link rel="stylesheet" href="../../CSS/Admin/admin_menu3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container-head">
+            <h2>JOINT MOTION SYSTEM</h2>
+        </div>
+        
+        <div class="user-container">
+            <div class="profile">
+                <p>แอดมิน: <span id="user-name">กำลังโหลด...</span></p>
+            </div>
+            
+            <div class="logout">
+                <button onclick="Logout()">ออกจากระบบ</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="line-under"></div>
+    
+    <div class="main-body">
+        <div class="navbar">
+            <ul>
+                <li><a href="../../public/admin_home.html"><i class="fa-solid fa-house"></i>หน้าเมนู Dashboard</a></li>
+                <li class="active"><a href="Admin_menu3.html"><i class="fa-solid fa-chart-simple" style="color: rgb(34, 183, 0);"></i>ดูภาพรวมของระบบ</a></li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <!-- <h2>ดูภาพรวมของระบบ</h2> -->
+
+            <div class="dashborad-cards">
+                <div class="card">
+                    <h3>จำนวนผู้ใช้งานในขณะนี้</h3>
+                    <div class="Physiocount" id="activePhysiocount"> 0 คน</div>
+                    <p>นักกายภาพบำบัด</p>
+                </div>
+                
+                <div class="card">
+                    <h3>สถานะอุปกรณ์ที่ใช้งานในขณะนี้</h3>
+                    <div class="Devicecount" id="activeDevicecount"> 0 ตัว</div>
+                    <p id="activeDeviceStatus">ออฟไลน์</p>
+                </div>
+            </div>
+
+            <div class="log-container">
+                <h3>📜 บันทึกเหตุการณ์และสถานะการทำงานในระบบ (System Logs)</h3>
+                <div class="loglist" id="logList">กำลังโหลดบันทึกระบบ...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../config/firebase-config.js"></script>
+    <!-- <script src="js/admin-manage-device.js"></script> -->
+     <script src="../../JS/Logout.js"></script>
+     <script src="../../JS/Check-admin.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+</body>
+</html>
