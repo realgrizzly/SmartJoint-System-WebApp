@@ -69,7 +69,7 @@ function deletePhysio(id, name) {
 }
 
 function addPhysio(){
-    location.href = 'admin_addphysio.html';
+    location.href = 'Admin_menu1_addphysio.html';
 };
 
 function viewDetails(id) {
