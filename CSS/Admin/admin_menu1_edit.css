@@ -234,3 +234,148 @@ body{
         min-width:900px;
     }
 }
+
+
+/* ================= Content Header & Add Button ================= */
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.content-header h2 {
+    margin-bottom: 8px;
+}
+
+.content-header p {
+    color: #4b5563;
+    font-size: 15px;
+}
+
+.add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 10px 22px;
+    background: #2563eb;
+    color: #fff;
+    border: 1px solid #1d4ed8;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.22);
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.add-btn i {
+    font-size: 14px;
+}
+
+.add-btn:hover {
+    background: #1d4ed8;
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.3);
+    transform: translateY(-1px);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+.add-btn:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .content-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .add-btn {
+        align-self: flex-start;
+    }
+}
+
+
+
+/* ================= Physiotherapist Data Table ================= */
+
+/* HTML ใช้ class="table-card" จึงต้องกำหนดสไตล์ด้วยชื่อนี้ */
+.table-card {
+    width: 100%;
+    margin-top: 24px;
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid #edf0f5;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.table-card table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.table-card thead {
+    background: #2563eb;
+    color: #fff;
+}
+
+.table-card th {
+    padding: 16px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: 1px solid #1d4ed8;
+}
+
+.table-card td {
+    padding: 14px;
+    font-size: 14px;
+    color: #374151;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table-card tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-card tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* แสดงข้อความกำลังโหลด/ไม่มีข้อมูลให้อยู่กลางตาราง */
+.table-card tbody td[colspan] {
+    padding: 28px 16px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* ปุ่มจัดการภายในตาราง (ถ้ามีการสร้างจาก JavaScript) */
+.table-card td button {
+    margin: 2px;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .table-card {
+        margin-top: 20px;
+    }
+}
