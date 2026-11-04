@@ -72,11 +72,11 @@ function addPhysio(){
     location.href = 'Admin_menu1_addphysio.html';
 };
 
+// ไปหน้าดูรายละเอียด
 function viewDetails(id) {
-    // ส่งไอดีผ่าน URL parameter ไปที่ไฟล์ HTML ที่เราทำไว้
-    window.location.href = `admin_viewphysio.html?id=${id}`;
+    window.location.href = `Admin_viewphysio.html?id=${encodeURIComponent(id)}`;
 }
 
 function  editPhysio(id) {
-    window.location.href = `admin_editphysio.html?id=${id}`;
+    window.location.href = `../Admin_editphysio.html?id=${encodeURIComponent(id)}`;
 }

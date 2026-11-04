@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดนักกายภาพ | Admin</title>
+    
+    <link rel="stylesheet" href="../../CSS/Admin/admin_viewphysio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="container-head">
+            <h2>วัดมุมการเคลื่อนไหวข้อศอกและข้อเข่าด้วยเซนเซอร์</h2>
+        </div>
+        
+        <div class="user-container">
+            <div class="profile">
+                <p>แอดมิน: <span id="user-name">กำลังโหลด...</span></p>
+            </div>
+            
+            <div class="logout">
+                <button onclick="Logout()">ออกจากระบบ</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="line-under"></div>
+    
+    <div class="main-body">
+        <div class="navbar">
+            <ul>
+                <li><a href="../../public/admin_home.html"><i class="fa-solid fa-house"></i>หน้าเมนู Dashboard</a>
+                <li class="active"><a href="admin_menu1_edit.html"><i class="fa-solid fa-user-doctor"></i>จัดการข้อมูลนักกายภาพบำบัด</a>
+                <li><a href="Admin_menu1_editpatient.html"><i class="fa-solid fa-hospital-user"></i>จัดการข้อมูลผู้ป่วย</a>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <h2>ดูรายละเอียดข้อมูลนักกายภาพบำบัด</h2>
+            
+            <form id="view-physio-form" class="form-container">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="physioId">รหัสนักกายภาพบำบัด</label>
+                        <input type="text" id="physioId" maxlength="5" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">เพศ</label>
+                        <input type="text" id="gender" disabled> <!-- เปลี่ยนจาก selected เป็น input-->
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">ชื่อ</label>
+                        <input type="text" id="firstName" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">นามสกุล</label>
+                        <input type="text" id="lastName" disabled>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="username">ชื่อผู้ใช้</label>
+                        <input type="text" id="username" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">รหัสผ่าน</label>
+                        <input type="text" id="password" disabled>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">อีเมล</label>
+                        <input type="email" id="email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">เบอร์ติดต่อ</label>
+                        <input type="text" id="phone" maxlength="10" disabled>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="createDate">วันที่เพิ่มข้อมูล</label>
+                        <input type="date" id="createDate" disabled>
+                    </div>
+                    
+                    <div class="form-group invisible"></div>
+                </div>
+                
+                <div class="button-group">
+                    <!-- <button type="submit" class="btn-save">บันทึก</button> -->
+                     <button type="button" class="btn-cancel" onclick='buttonCancle()'>ยกเลิก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+    <script src="../../config/firebase-config.js"></script>
+    <script src="../../JS/Admin_viewphysio.js"></script>
+    <script src="../../JS/Check-admin.js"></script>
+    <script src="../../JS/Logout.js"></script>
+
+</body>
+</html>

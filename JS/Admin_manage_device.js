@@ -75,7 +75,7 @@ function deleteDevice(id, name) {
 
 // ฟังก์ชันเมื่อแอดมินกดปุ่ม "เพิ่มข้อมูลอุปกรณ์"
 function addDevice(){
-    location.href = 'admin_adddevice.html';
+    location.href = '../AdminMenu2/Admin_menu2_adddevice.html';
 };
 
 // ฟังก์ชันเมื่อแอดมินกดปุ่ม "แก้ไข"
