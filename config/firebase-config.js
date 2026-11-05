@@ -1,5 +1,4 @@
-// Firebase SDK Configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyAP_wzv05lZDO5JwlWx1YbEQSXRljRxIJs",
   authDomain: "smart-joint-senser.firebaseapp.com",
@@ -11,18 +10,7 @@ const firebaseConfig = {
   measurementId: "G-Z3SNECGNBG"
 };
 
-// Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+// เริ่มต้นเปิดใช้งานโปรเจกต์
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 
-// Authentication
-const auth = firebase.auth();
-
-// Cloud Firestore
-const db = firebase.firestore();
-
-// Realtime Database
-const rtdb = firebase.database();
-
-console.log("Firebase initialized successfully");

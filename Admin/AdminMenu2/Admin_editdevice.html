@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขข้อมูลอุปกรณ์ | Admin</title>
+    
+    <link rel="stylesheet" href="../../CSS/Admin/admin_menu2_adddevice.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container-head">
+            <h2>วัดมุมการเคลื่อนไหวข้อศอกและข้อเข่าด้วยเซนเซอร์</h2>
+        </div>
+        
+        <div class="user-container">
+            <div class="profile">
+                <p>แอดมิน: <span id="user-name">กำลังโหลด...</span></p>
+            </div>
+            
+            <div class="logout">
+                <button onclick="Logout()">ออกจากระบบ</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="line-under"></div>
+    
+    <div class="main-body">
+        <div class="navbar">
+            <ul>
+                <li><a href="../../public/admin_home.html">
+                    <i class="fa-solid fa-house"></i>หน้าเมนู Dashboard</a>
+                </li>
+                <li class="active"><a href="../AdminMenu2/Admin_menu2.html">
+                    <i class="fa-solid fa-microchip"></i>จัดการอุปกรณ์และตรวจสอบสถานะ</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <h2>แก้ไขข้อมูลอุปกรณ์</h2>
+            
+            <form id="edit-device-form" class="form-container">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="deviceName">ชื่ออุปกรณ์</label>
+                        <input type="text" id="deviceName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="battery">แบตเตอรี่</label>
+                        <input type="text" id="battery" value="---" disabled style="background-color:rgb(240, 239, 239);">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="status">สถานะการใช้งาน</label>
+                        <input type="text" id="status" value="ออฟไลน์" disabled style="background-color:rgb(240, 239, 239);">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastConnected">อัปเดตล่าสุด</label>
+                        <input type="date" id="lastConnected"  required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group invisible"></div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="btn-save">บันทึก</button>
+                    <button type="button" class="btn-cancel" onclick='buttonCancle()'>ยกเลิก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+    <script src="../../config/firebase-config.js"></script>
+    <script src="../../JS/Check-admin.js"></script>
+    <script src="../../JS/Admin_editdevice.js"></script>
+    <script src="../../JS/Logout.js"></script>
+
+</body>
+</html>

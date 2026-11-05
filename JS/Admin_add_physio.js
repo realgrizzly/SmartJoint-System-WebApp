@@ -1,5 +1,5 @@
 function buttonCancle() {
-    window.location.href = 'Admin_menu1_edit.html';
+    window.location.href = 'Admin_menu1_physio.html';
 }
 
 // ตัวอย่างโครงสร้างฟังก์ชันตอนกด Submit ฟอร์มเพิ่มข้อมูลพนักงานใหม่
@@ -41,7 +41,7 @@ document.getElementById('add-physio-form').addEventListener('submit', (e) => {
         })
         .then(() => {
             alert('เพิ่มข้อมูลนักกายภาพบำบัดและสร้างบัญชีเข้าใช้งานสำเร็จ!');
-            window.location.href = 'Admin_menu1_edit.html'; // เด้งกลับหน้ารวมตาราง
+            window.location.href = 'Admin_menu1_physio.html'; // เด้งกลับหน้ารวมตาราง
         })
         .catch((error) => {
             console.error("เกิดข้อผิดพลาดในการสร้างบัญชี:", error);

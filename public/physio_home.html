@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หน้าแรก | นักกายภาพบำบัด</title>
+  <link rel="stylesheet" href="../CSS/Physio/physio_home.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+ 
+  
+</head>
+<body>
+  <header class="main-header">
+    <div class="container-head">
+      <h2>วัดมุมการเคลื่อนไหวข้อศอกและข้อเข่าด้วยเซนเซอร์</h2>
+    </div>
+    <div class="user-container">
+      <div class="profile">
+        <p>นักกายภาพบำบัด : <span id="user-name">กำลังโหลด...</span></p>
+      </div>
+      <div class="logout">
+        <button onclick="Logout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </header>
+    <div class="line-under"></div>
+    <div class="main-body">
+        <div class="navbar">
+          <ul>
+            <li class="active"><a href="../public/physio_home.html"><i class="fa-solid fa-house"></i>หน้าแรก</a></li>
+            <li><a href="../Physio/physio_managepatient.html"><i class="fa-solid fa-user-injured"></i>จัดการข้อมูลผู้ป่วย</a></li>
+          </ul>
+        </div>
+
+      <div class="main-content">
+        <h2>ค้นหาข้อมูลผู้ป่วยด้วย รหัสผู้ป่วย หรือ ชื่อผู้ป่วย</h2>
+        <div class="box-input">
+          <input class="input-search" type="text" id="searchPatientInput" placeholder="กรอกรหัส หรือชื่อผู้ป่วย...">
+          <br>
+          <button class="btn-search-patient" onclick="searchPatient()">ค้นหา</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn-add-patient" onclick="addPatient()">เพิ่มข้อมูลผู้ป่วย</button>
+
+    <div class="error-alert" id="errorAlert">
+      <div class="error-box">
+        <div class="icon-error-container">
+            <span class="icon-error">X</span>
+        </div>
+        <h2>ไม่พบข้อมูลผู้ป่วย</h2>
+        <button class="btn-error" onclick="closeError()">ปิด</button>
+      </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+    <script src="../config/firebase-config.js"></script>
+    <script src="../JS/Check-physio.js"></script>
+    <script src="../JS/physio_home.js"></script>
+    <script src="../JS/Logout.js"></script>
+</body>
+</html>

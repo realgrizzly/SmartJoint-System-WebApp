@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ประวัติการรักษา | JOINT MOTION SYSTEM</title>
+
+  <link rel="stylesheet" href="../CSS/Physio/physio_treatmenthistory.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="container-head">
+      <h2>วัดมุมการเคลื่อนไหวข้อศอกและข้อเข่าด้วยเซนเซอร์</h2>
+    </div>
+    <div class="user-container">
+      <div class="profile">
+        <p>นักกายภาพบำบัด: <span id="user-name">กำลังโหลด...</span></p>
+      </div>
+      <div class="logout">
+        <button onclick="Logout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-body">
+    <nav class="navbar">
+      <ul>
+        <li><a href="../public/physio_home.html"><i class="fa-solid fa-house"></i>หน้าแรก</a></li>
+        <li><a href="physio_managepatient.html"><i class="fa-solid fa-user-injured"></i>จัดการข้อมูลผู้ป่วย</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="page-heading">
+        <div>
+          <h1>ประวัติการรักษา</h1>
+          <p>รายการบันทึกผลการวัดมุมการเคลื่อนไหวของผู้ป่วย</p>
+        </div>
+        <button class="btn-back" id="btn-back"><i class="fa-solid fa-arrow-left"></i> กลับหน้าข้อมูลผู้ป่วย</button>
+      </div>
+
+      <section class="patient-card">
+        <div class="patient-avatar"><i class="fa-solid fa-user"></i></div>
+        <div class="patient-info">
+          <span class="eyebrow">ข้อมูลผู้ป่วย</span>
+          <h2 id="patient-name">กำลังโหลดข้อมูล...</h2>
+          <div class="patient-meta">
+            <span><i class="fa-solid fa-id-card"></i> รหัสผู้ป่วย: <b id="patient-id">-</b></span>
+            <span><i class="fa-solid fa-venus-mars"></i> เพศ: <b id="patient-gender">-</b></span>
+            <span><i class="fa-solid fa-user-doctor"></i> ผู้ดูแล: <b id="physio-name">-</b></span>
+          </div>
+        </div>
+        <div class="patient-tags">
+          <span class="tag" id="measurement-type">ประเภทการวัด: -</span>
+          <span class="tag" id="body-side">ตำแหน่ง: -</span>
+        </div>
+      </section>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon blue"><i class="fa-solid fa-clipboard-list"></i></div>
+          <div><span>จำนวนครั้งที่บันทึก</span><strong id="total-records">0</strong><small>ครั้ง</small></div>
+        </article>
+        <article class="summary-card">
+          <div class="summary-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+          <div><span>วันที่รักษาล่าสุด</span><strong class="summary-date" id="last-session">-</strong><small id="last-session-time">ยังไม่มีข้อมูล</small></div>
+        </article>
+        <article class="summary-card">
+          <div class="summary-icon purple"><i class="fa-solid fa-chart-line"></i></div>
+          <div><span>ค่ามุมสูงสุดที่เคยบันทึก</span><strong id="overall-max">-</strong><small>องศา (°)</small></div>
+        </article>
+      </section>
+
+
+      <section class="history-chart-panel">
+        <div class="panel-heading history-chart-heading">
+          <div>
+            <h2>กราฟพัฒนาการการรักษา</h2>
+            <p>เปรียบเทียบองศาการเคลื่อนไหวจากการรักษาทุกครั้งตามวันที่</p>
+          </div>
+          <span class="chart-unit">องศา (°)</span>
+        </div>
+        <div class="history-chart-wrap">
+          <canvas id="all-sessions-chart"></canvas>
+        </div>
+        <p class="chart-footnote" id="history-chart-note">
+          กราฟจะแสดงค่ามุมสูงสุดและต่ำสุดของแต่ละครั้ง โดยเรียงตามวันที่รักษา
+        </p>
+      </section>
+
+      <section class="history-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>รายการประวัติการรักษา</h2>
+            <p>เลือกวันที่หรือค้นหาบันทึกที่ต้องการดู</p>
+          </div>
+          <button class="btn-export" id="btn-export"><i class="fa-solid fa-file-arrow-down"></i> ส่งออก CSV</button>
+        </div>
+
+        <div class="filters">
+          <label class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="search-history" type="search" placeholder="ค้นหาท่ากายภาพบำบัด / หมายเหตุ...">
+          </label>
+          <label class="date-filter">ตั้งแต่วันที่ <input type="date" id="date-from"></label>
+          <label class="date-filter">ถึงวันที่ <input type="date" id="date-to"></label>
+          <button class="btn-clear" id="btn-clear">ล้างตัวกรอง</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ลำดับ</th>
+                <th>วันที่ / เวลา</th>
+                <th>ประเภทการวัด</th>
+                <th>ท่ากายภาพบำบัด</th>
+                <th>ค่ามุมสูงสุด</th>
+                <th>ค่ามุมต่ำสุด</th>
+                <th>บันทึกเพิ่มเติม</th>
+                <th>รายละเอียด</th>
+              </tr>
+            </thead>
+            <tbody id="history-table">
+              <tr><td colspan="8" class="loading-cell"><i class="fa-solid fa-spinner fa-spin"></i> กำลังโหลดประวัติการรักษา...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <span id="result-count">แสดง 0 รายการ</span>
+          <span class="data-note">ข้อมูลแสดงตามรายการที่บันทึกไว้ในระบบ</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="detail-modal" aria-hidden="true">
+    <section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-heading">
+        <div><span class="eyebrow">SESSION DETAIL</span><h2 id="modal-title">รายละเอียดการรักษา</h2></div>
+        <button class="modal-close" id="modal-close" aria-label="ปิด"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="detail-grid" id="detail-content"></div>
+      <div class="modal-actions"><button class="btn-back" id="modal-close-bottom">ปิดหน้าต่าง</button></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../JS/Check-physio.js"></script>
+  <script src="../JS/Logout.js"></script>
+  <script src="../JS/physio_treatmenthistory.js"></script>
+</body>
+</html>

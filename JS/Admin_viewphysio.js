@@ -27,7 +27,7 @@ if (physioId) {
             }
         } else {
             alert('ไม่พบข้อมูลนักกายภาพบำบัดท่านนี้ในระบบ');
-            location.href = 'admin_menu1_edit.html';
+            location.href = 'Admin_menu1_edit.html'; // กลับไปหน้าตารางหลัก
         }
     })
     .catch((error) => {
@@ -36,10 +36,10 @@ if (physioId) {
     });
 } else {
     alert('กรุณาระบุไอดีนักกายภาพบำบัด');
-    location.href = '../admin_menu1_edit.html';
+    location.href = 'Admin_menu1_edit.html';
 }
 
 // ฟังก์ชันสำหรับปุ่มยกเลิก ให้กดแล้วเด้งกลับหน้าตารางหลัก
 function buttonCancle() {
-    location.href = '../admin_menu1_edit.html';
+    location.href = 'Admin_menu1_physio.html';
 }

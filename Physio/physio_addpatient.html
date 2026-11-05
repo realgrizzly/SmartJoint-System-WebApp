@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เพิ่มข้อมูลผู้ป่วย | นักกายภาพบำบัด</title>
+
+  <link rel="stylesheet" href="../CSS/Physio/physio_addpatient.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet    ">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">  
+</head>
+<body>
+  <header class="main-header">
+    <div class="container-head">
+      <h2>วัดมุมการเคลื่อนไหวข้อศอกและข้อเข่าด้วยเซนเซอร์</h2>
+    </div>
+    <div class="user-container">
+      <div class="profile">
+        <p>นักกายภาพบำบัด : <span id="user-name">กำลังโหลด...</span></p>
+      </div>
+      <div class="logout">
+        <button onclick="Logout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </header>
+    <div class="line-under"></div>
+
+  <div class="main-body">
+      <div class="navbar">
+        <ul>
+          <li><a href="../public/physio_home.html"><i class="fa-solid fa-house"></i>หน้าแรก</a></li>
+          <li><a href="physio_managepatient.html"><i class="fa-solid fa-user-injured"></i>จัดการข้อมูลผู้ป่วย</a></li>
+        </ul>
+      </div>
+
+    <div class="main-content">
+      <h2>เพิ่มข้อมูลผู้ป่วย</h2>
+
+      <form id="add-patient-form" class="form-container">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientId">รหัสผู้ป่วย</label>
+            <input type="text" id="patientId" maxlength="5" required>
+          </div>
+
+          <div class="form-group">
+            <label for="gender">เพศ</label>
+            <select id="gender" required>
+              <option value="" disabled selected>เลือกเพศ</option>
+              <option value="ชาย">ชาย</option>
+              <option value="หญิง">หญิง</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">ชื่อ</label>
+            <input type="text" id="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">นามสกุล</label>
+            <input type="text" id="lastName"  required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="birthDate">วันเกิด</label>
+            <input type="date" id="birthDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="measurementType">ประเภทการวัด</label>
+            <select id="measurementType" required>
+              <option value="" disabled selected>เลือกประเภทการวัด</option>
+              <option value="ข้อศอก">ข้อศอก</option>
+              <option value="ข้อเข่า">ข้อเข่า</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="posture">ท่ากายภาพบำบัด</label>
+            <select id="posture" required>
+              <option value="" disabled selected>เลือกท่ากายภาพบำบัด</option>
+              <option value="เหยียด และ งอ">เหยียด และ งอ</option>
+              <option value="หุบเข้า และ หุบออก">หุบเข้า และ หุบออก</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bodySide">ตำแหน่ง</label>
+            <select id="bodySide" required>
+              <option value="" disabled selected>เลือกตำแหน่ง</option>
+              <option value="ข้างซ้าย">ข้างซ้าย</option>
+              <option value="ข้างขวา">ข้างขวา</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="DateStart">วันที่เริ่มการรักษา</label>
+            <input type="date" id="DateStart" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">เบอร์ติดต่อ</label>
+            <input type="text" id="phone" maxlength="10" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="History">ประวัติอาการ</label>
+            <textarea id="History" required ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="physioCare">นักกายภาพบำบัดที่ดูแล</label>
+            <input type="text" id="physioCare" disabled style="background-color:rgb(240, 239, 239);">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group invisible"></div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-save">บันทึก</button>
+          <button type="button" class="btn-cancel" onclick='buttonCancle()'>ยกเลิก</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+  <script src="../config/firebase-config.js"></script>
+  <script src="../JS/Check-Physio.js"></script>
+  <script src="../JS/physio_addpatient.js"></script>
+  <script src="../JS/Logout.js"></script>
+</body>
+</html>

@@ -78,5 +78,5 @@ function viewDetails(id) {
 }
 
 function  editPhysio(id) {
-    window.location.href = `../Admin_editphysio.html?id=${encodeURIComponent(id)}`;
+    window.location.href = `Admin_menu1_editphysio.html?id=${encodeURIComponent(id)}`;
 }

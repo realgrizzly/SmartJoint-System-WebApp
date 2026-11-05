@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดผู้ป่วย | นักกายภาพบำบัด</title>
+    
+    <link rel="stylesheet" href="../CSS/Physio/physio_searchdetailpatient.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+</head>
+<body>
+  <header class="main-header">
+    <div class="container-head">
+      <h2>วัดมุมการเคลื่อนไหวข้อศอกและข้อเข่าด้วยเซนเซอร์</h2>
+    </div>
+    <div class="user-container">
+      <div class="profile">
+        <p>นักกายภาพบำบัด: <span id="user-name">กำลังโหลด...</span></p>
+      </div>
+      <div class="logout">
+        <button onclick="Logout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </header>
+    <div class="line-under"></div>
+    <div class="main-body">
+        <div class="navbar">
+           <ul>
+            <li class="active"><a href="../public/physio_home.html"><i class="fa-solid fa-house"></i>หน้าแรก</a></li>
+            <li><a href="../Physio/physio_managepatient.html"><i class="fa-solid fa-user-injured"></i>จัดการข้อมูลผู้ป่วย</a></li>
+          </ul>
+        </div>
+
+    <div class="main-content">
+      <div class="patient-dashboard">
+        <h3 class="dashboard-title">ข้อมูลการรักษาผู้ป่วย</h3>
+        
+        <div class="info-grid">
+          <div><strong>ชื่อ-นามสกุล:</strong> <span id="lbl-name">-</span></div>
+          <div><strong>รหัสผู้ป่วย:</strong> <span id="lbl-patientId">-</span></div>
+          <div><strong>เพศ:</strong> <span id="lbl-gender">-</span></div>
+          
+          <div><strong>อายุ:</strong> <span id="lbl-age">-</span> ปี</div>
+          <div><strong>เบอร์ติดต่อ:</strong> <span id="lbl-phone">-</span></div>
+          <div><strong>วันที่ได้รับการรักษา:</strong> <span id="lbl-DateStart">-</span></div>
+          
+          <div><strong>ประเภทการวัด:</strong> <span id="lbl-measurementType">-</span></div>
+          <div><strong>ตำแหน่ง:</strong> <span id="lbl-bodySide">-</span></div>
+          <div><strong>ท่ากายภาพบำบัด:</strong> <span id="lbl-posture">-</span></div>
+          <div><strong>นักกายภาพบำบัดที่ดูแล:</strong> <span id="lbl-physioName">-</span></div>
+          
+          <div class="sensor-status-block">
+            <strong>สถานะความพร้อมอุปกรณ์</strong><br>
+            <span>Sensor 1: <span id="status-s1" class="status-offline">ออฟไลน์</span></span><br>
+            <span>Sensor 2: <span id="status-s2" class="status-offline">ออฟไลน์</span></span>
+          </div>
+          
+          <!-- 💡 แยกบล็อกประวัติอาการให้แสดงผลยาวขึ้นได้ ไม่เบียดกับเพื่อน -->
+          <div><strong>ประวัติอาการ:</strong> <span id="lbl-History">-</span></div>
+        </div>
+
+        <div class="measurement-zone">
+          <div class="angle-display-box">
+            <strong>ค่ามุมที่วัดได้ล่าสุด</strong><br>
+            <span id="current-angle" class="angle-value">0°</span>
+          </div>
+          <div class="range-info-box">
+            <strong>ช่วงการเคลื่อนไหว</strong><br>
+            ค่ามุมที่มากที่สุด : <span id="max-angle">0°</span><br>
+            ค่ามุมที่น้อยที่สุด : <span id="min-angle">0°</span>
+          </div>
+          
+          <!-- แผงปุ่มวงกลม 3 ปุ่ม -->
+          <div class="control-btn-group">
+            <button id="btn-toggle-measure" class="btn-circle">เริ่มวัด<br>———<br>หยุดวัด</button>
+            <button id="btn-reset" class="btn-circle">รีเซ็ต</button>
+            <button id="btn-save-data" class="btn-circle">บันทึกข้อมูล</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 📌 บล็อกล่าง: กราฟการรักษา -->
+      <div class="chart-section">
+        
+        <!-- 💡 กล่อง Header จับหัวข้อและปุ่มดันแยกซ้าย-ขวา -->
+        <div class="chart-header">
+          <div>
+            <h3>กราฟการรักษา</h3>
+            <span class="chart-unit">องศา°</span>
+          </div>
+          <button id="btn-history" class="btn-history">ประวัติการรักษา</button>
+        </div>
+        
+        <div class="chart-container">
+          <canvas id="treatmentChart"></canvas>
+        </div>
+
+      </div>
+
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+    <script src="../config/firebase-config.js"></script>
+    <script src="../JS/Check-physio.js"></script>
+    <script src="../JS/physio_searchdetailpatient.js"></script>
+    <script src="../JS/Logout.js"></script>
+
+
+
+</body>
+</html>

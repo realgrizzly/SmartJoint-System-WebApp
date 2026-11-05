@@ -56,10 +56,10 @@ function deletePatient(id, name) {
 
 // ฟังก์ชันเปิดหน้าดูรายละเอียดผู้ป่วย (เตรียมไว้)
 function viewPatientDetails(id) {
-    window.location.href = `admin_viewpatient.html?id=${id}`;
+    window.location.href = `Admin_viewpatient.html?id=${id}`;
 }
 
 // ฟังก์ชันเปิดหน้าแก้ไขข้อมูลผู้ป่วย (เตรียมไว้)
 function editPatient(id) {
-    window.location.href = `admin_editpatient.html?id=${id}`;
+    window.location.href = `Admin_menu1_editpatient.html?id=${id}`;
 }

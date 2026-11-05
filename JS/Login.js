@@ -62,7 +62,7 @@ function handleLogin() {
                             window.location.href = 'admin_home.html';
                         } else if (userFound.role === 'physio') {
                             alert('ยินดีต้อนรับคุณ ' + userFound.name);
-                            window.location.href = 'physio_index.html';
+                            window.location.href = 'physio_home.html';
                         }
                     })
                     .catch((error) => {

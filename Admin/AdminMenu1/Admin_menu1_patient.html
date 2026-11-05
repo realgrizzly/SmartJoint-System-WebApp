@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จัดการผู้ป่วย | Admin</title>
+  
+  <link rel="stylesheet" href="../../CSS/Admin/admin_menu1_editpatient.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="container-head">
+      <h2>JOINT MOTION SYSTEM</h2>
+    </div>
+    <div class="user-container">
+      <div class="profile">
+        <p>แอดมิน: <span id="user-name">กำลังโหลด...</span></p>
+      </div>
+      <div class="logout">
+        <button onclick="Logout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </header>
+    <div class="line-under"></div>
+
+  <div class="main-body">
+    <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="../../public/admin_home.html"><i class="fa-solid fa-house"></i>หน้าเมนู Dashboard</a>
+                </li>
+                
+                <li>
+                    <a href="../AdminMenu1/Admin_menu1_physio.html"><i class="fa-solid fa-user-doctor"></i>จัดการข้อมูลนักกายภาพบำบัด</a>
+                </li>
+                
+                <li class="active">
+                    <a href="Admin_menu1_patient.html"><i class="fa-solid fa-hospital-user"></i>จัดการข้อมูลผู้ป่วย</a>
+                </li>
+            </ul>
+        </nav>
+
+    <div class="main-content">
+      <h2>ข้อมูลผู้ป่วยทั้งหมด</h2>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>ชื่อ-นามสกุล</th>
+              <th>รหัสผู้ป่วย</th>
+              <th>เพศ</th>
+              <th>ประเภทการวัด</th>
+              <th>ตำแหน่ง</th>
+              <th>ท่ากายภาพบำบัด</th>
+              <th>นักกายภาพบำบัดที่ดูแล</th>
+              <th>ดำเนินการ</th>
+            </tr>
+          </thead>
+          <tbody id="table-patient">
+            <tr>
+              <td colspan="9">กำลังโหลดข้อมูล...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+  <script src="../../config/firebase-config.js"></script>
+  <script src="../../JS/Admin_manage_patient.js"></script>
+  <script src="../../JS/Check-admin.js"></script>
+  <script src="../../JS/Logout.js"></script>
+  
+</body>
+</html>
